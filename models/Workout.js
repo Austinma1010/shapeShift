@@ -15,9 +15,6 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-    },
     reps: {
         type: DataTypes.INTEGER,
     },
