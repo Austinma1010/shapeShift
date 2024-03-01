@@ -1,6 +1,6 @@
 [
     {
-        "user_id": 1,
+        
         "full_name": "John Doe",
         "email": "Doughyjohn@hotmail.com",
         "password": "password123",
@@ -12,7 +12,7 @@
         "goal": "reduction"
     },
     {
-        "user_id": 2,
+        
         "full_name": "Jerry Jerkins",
         "email": "JerkinJerry@gmail.com",
         "password": "wordpass321",
@@ -24,7 +24,7 @@
         "goal": "gain"
     },
     {
-        "user_id": 3,
+        
         "full_name": "Hillary Clinton",
         "email": "therealhilary@aol.com",
         "password": "Billyblue103",
@@ -36,7 +36,7 @@
         "goal": "reduction"
     },
     {
-        "user_id": 4,
+        
         "full_name": "Pablo Chacon",
         "email": "apesquatchhunter@gmail.com",
         "password": "bigfootisreal44",
@@ -48,7 +48,7 @@
         "goal": "reduction"
     },
     {
-        "user_id": 5,
+        
         "full_name": "Mary Mitchells",
         "email": "MMMcakes@hotmail.com",
         "password": "bakemeacake123",
