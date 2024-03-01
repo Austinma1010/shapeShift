@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    full_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -35,6 +35,30 @@ User.init(
         len: [8],
       },
     },
+    gender: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    weight: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    height: {
+        type: DataTypes.DECIMAL,
+        allowNull: false,
+    },
+    age: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    activity_level: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    goal: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
   },
   {
     hooks: {
