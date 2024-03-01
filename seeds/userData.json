@@ -1,0 +1,63 @@
+[
+    {
+        "user_id": 1,
+        "full_name": "John Doe",
+        "email": "Doughyjohn@hotmail.com",
+        "password": "password123",
+        "gender": 1,
+        "weight":230,
+        "height": 72,
+        "age": 25,
+        "activity_level": "light",
+        "goal": "reduction"
+    },
+    {
+        "user_id": 2,
+        "full_name": "Jerry Jerkins",
+        "email": "JerkinJerry@gmail.com",
+        "password": "wordpass321",
+        "gender": 1,
+        "weight":140,
+        "height": 83,
+        "age": 37,
+        "activity_level": "light",
+        "goal": "gain"
+    },
+    {
+        "user_id": 3,
+        "full_name": "Hillary Clinton",
+        "email": "therealhilary@aol.com",
+        "password": "Billyblue103",
+        "gender": 0,
+        "weight":220,
+        "height": 65,
+        "age": 76,
+        "activity_level": "extreme",
+        "goal": "reduction"
+    },
+    {
+        "user_id": 4,
+        "full_name": "Pablo Chacon",
+        "email": "apesquatchhunter@gmail.com",
+        "password": "bigfootisreal44",
+        "gender": 1,
+        "weight":450,
+        "height": 60,
+        "age": 45,
+        "activity_level": "sedentary",
+        "goal": "reduction"
+    },
+    {
+        "user_id": 5,
+        "full_name": "Mary Mitchells",
+        "email": "MMMcakes@hotmail.com",
+        "password": "bakemeacake123",
+        "gender": 0,
+        "weight":140,
+        "height": 62,
+        "age": 23,
+        "activity_level": "moderate",
+        "goal": "maintain"
+    }
+
+]
