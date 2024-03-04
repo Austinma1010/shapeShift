@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
+
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">Email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h2>Signup</h2>
+
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">Name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">Email:</label>
+        <input class="form-input" type="email" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">Password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <p>Gender:</p>
+        <input type="radio" id="male" name="gender-signup" value="true" {{#if selectedOption}} checked {{/if}}>
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" name="gender-signup" value="false" {{#unless selectedOption}} checked {{/unless}}>
+        <label for="female">Female</label><br>
+      </div>
+      <div class="form-group">
+        <label for="weight-signup">Weight:</label>
+        <input class="form-input" type="number" id="weight-signup" />
+      </div>
+      <div class="form-group">
+        <label for="height-signup">Height:</label>
+        <input class="form-input" type="number" id="height-signup" />
+      </div>
+      <div class="form-group">
+        <label for="age-signup">Age:</label>
+        <input class="form-input" type="number" id="age-signup" />
+      </div>
+      <div class="form-group">
+        <label for="activity-signup">Activity Level:</label>
+        <input class="form-input" type="text" id="activity-signup" />
+      </div>
+      <div class="form-group">
+        <label for="goal-signup">Goal:</label>
+        <input class="form-input" type="text" id="goal-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Signup</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/login.js"></script>
