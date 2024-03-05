@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Workouts, User } = require('../models');
+const withAuth = require('../utils/auth')
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
@@ -27,3 +28,5 @@ router.get('/profile', withAuth, async (req, res) => {
         console.error(error);
     }
 })
+
+module.exports = router;
