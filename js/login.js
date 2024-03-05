@@ -28,6 +28,16 @@ const loginFormHandler = async (event) => {
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+    // Set up true or false values in the gender section of the form
+    const genderValues = {
+      selectedOption: true // Set the boolean value here
+    };
+
+    const source = document.getElementById('#gender-signup').innerHTML;
+    const template = Handlebars.compile(source);
+    const html = template(genderValues);
+
+    document.getElementById('gender-signup').innerHTML = html;
   
     if (name && email && password) {
       const response = await fetch('/api/users', {
@@ -43,17 +53,6 @@ const loginFormHandler = async (event) => {
       }
     }
   };
-
-  // Set up true or false values in the gender section of the form
-  const genderValues = {
-    selectedOption: true // Set the boolean value here
-};
-
-const source = document.getElementById('gender-signup').innerHTML;
-const template = Handlebars.compile(source);
-const html = template(genderValues);
-
-document.getElementById('gender-signup').innerHTML = html;
   
   document
     .querySelector('.login-form')

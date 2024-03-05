@@ -32,7 +32,7 @@
         <label for="password-signup">Password:</label>
         <input class="form-input" type="password" id="password-signup" />
       </div>
-      <div class="form-group">
+      <div class="form-group" id="gender-signup">
         <p>Gender:</p>
         <input type="radio" id="male" name="gender-signup" value="true" {{#if selectedOption}} checked {{/if}}>
         <label for="male">Male</label><br>
@@ -53,12 +53,22 @@
         <input class="form-input" type="number" id="age-signup" />
       </div>
       <div class="form-group">
-        <label for="activity-signup">Activity Level:</label>
-        <input class="form-input" type="text" id="activity-signup" />
+        <label for="activity-signup">Select an activity level:</label>
+        <select name="activity-signup" id="activity-level">
+          <option value="sedentary">Sedentary</option>
+          <option value="light">Light</option>
+          <option value="moderate">Moderate</option>
+          <option value="high">High</option>
+          <option value="extreme">Extreme</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="goal-signup">Goal:</label>
-        <input class="form-input" type="text" id="goal-signup" />
+        <label for="goal-signup">Select a weight goal:</label>
+        <select name="goal-signup" id="user-goal">
+          <option value="reduction">Reduction</option>
+          <option value="maintain">Maintain</option>
+          <option value="gain">Gain</option>
+        </select>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">Signup</button>
