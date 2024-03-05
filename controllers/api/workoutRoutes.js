@@ -2,6 +2,12 @@ const router = require('express').Router();
 const { Workout } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', (req, res) => {
+  Workout.findAll().then((workoutData) => {
+    res.json(workoutData);
+  });
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newWorkout = await Workout.create({
