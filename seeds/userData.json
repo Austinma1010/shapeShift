@@ -8,7 +8,7 @@
         "weight":230,
         "height": 72,
         "age": 25,
-        "activity_level": "light",
+        "activity_level": 2,
         "goal": "reduction"
     },
     {
@@ -20,7 +20,7 @@
         "weight":140,
         "height": 83,
         "age": 37,
-        "activity_level": "light",
+        "activity_level": 2,
         "goal": "gain"
     },
     {
@@ -32,7 +32,7 @@
         "weight":220,
         "height": 65,
         "age": 76,
-        "activity_level": "extreme",
+        "activity_level": 5,
         "goal": "reduction"
     },
     {
@@ -44,7 +44,7 @@
         "weight":450,
         "height": 60,
         "age": 45,
-        "activity_level": "sedentary",
+        "activity_level": 1,
         "goal": "reduction"
     },
     {
@@ -56,7 +56,7 @@
         "weight":140,
         "height": 62,
         "age": 23,
-        "activity_level": "moderate",
+        "activity_level": 3,
         "goal": "maintain"
     }
 
