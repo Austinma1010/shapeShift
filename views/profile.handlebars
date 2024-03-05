@@ -1,2 +1,52 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
 
+<div class="user-dashboard">
+    <button class="basal-metabolic-rate" id="bmr">BMR</button>
+    <button class="tdee" id="tdee">Total Daily Energy Expenditure</button>
+    <button class="caloric-needs" id="caloric-needs">Caloric Needs</button>
+    <button class="ideal-weight" id="ideal-weight">Ideal Body Weight</button>
+</div>
+
+<div class="new-workout-btn">
+    <button id="new-workout-btn">Add New Workout</button>
+</div>
+
+<form class="form new-workout-form">
+  <div class="workout-group">
+    <label for="workout-name">Workout Name</label>
+    <input class="form-input" type="text" id="workout-name" />
+  </div>
+  <div class="workout-group">
+    <label for="workout-reps">Number of Reps</label>
+    <input class="form-input" type="number" id="workout-reps" />
+  </div>
+  <div class="workout-group">
+    <label for="workout-sets">Number of Sets</label>
+    <input class="form-input" type="number" id="workout-sets" />
+  </div>
+  <div class="workout-group">
+    <label for="workout-muscle-group">Muscle Group</label>
+    <input class="form-input" type="text" id="workout-muscle-group" />
+  </div>
+  <div class="workout-group">
+    <label for="workout-equipment">Equipment Needed</label>
+    <input class="form-input" type="text" id="workout-equipment" />
+  </div>
+  <div class="workout-group">
+    <label for="workout-difficulty">Difficulty</label>
+    <input class="form-input" type="text" id="workout-difficulty" />
+  </div>
+  <div class="workout-group">
+    <label for="workout-instructions">Instructions</label>
+    <input class="form-input" type="text" id="workout-instructions" />
+  </div>
+</form>
+    
+<div class="past-workouts" style="height:1000px;width:500px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+  <div class="previous-workouts"></div>
+</div>
 
