@@ -28,21 +28,27 @@ const loginFormHandler = async (event) => {
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+    const gender = document.querySelector('#gender-signup').value.trim();
+    const weight = document.querySelector('#weight-signup').value.trim();
+    const height = document.querySelector('#height-signup').value.trim();
+    const age = document.querySelector('#age-signup').value.trim();
+    const activity = document.querySelector('#activity-signup').value.trim();
+    const goal = document.querySelector('#goal-signup').value.trim();
     // Set up true or false values in the gender section of the form
     const genderValues = {
       selectedOption: true // Set the boolean value here
     };
 
-    const source = document.getElementById('#gender-signup').innerHTML;
+    const source = document.getElementById('gender-signup').innerHTML;
     const template = Handlebars.compile(source);
     const html = template(genderValues);
 
     document.getElementById('gender-signup').innerHTML = html;
   
-    if (name && email && password) {
+    if (name && email && password && gender && weight && height && age && activity && goal) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, gender, weight, height, age, activity, goal }),
         headers: { 'Content-Type': 'application/json' },
       });
   
