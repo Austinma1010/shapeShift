@@ -33,7 +33,7 @@ const loginFormHandler = async (event) => {
       selectedOption: true // Set the boolean value here
     };
 
-    const source = document.getElementById('#gender-signup').innerHTML;
+    const source = document.getElementById('gender-signup').innerHTML;
     const template = Handlebars.compile(source);
     const html = template(genderValues);
 
@@ -53,7 +53,7 @@ const loginFormHandler = async (event) => {
       }
     }
   };
-  
+
   document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
