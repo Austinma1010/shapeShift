@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Workouts, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
@@ -10,7 +11,7 @@ router.get('/login', (req,res) => {
     res.render('login');
 });
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
@@ -27,3 +28,5 @@ router.get('/profile', withAuth, async (req, res) => {
         console.error(error);
     }
 })
+
+module.exports = router;
