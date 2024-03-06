@@ -27,6 +27,39 @@ let idealBodyWeight = calculate.idealBodyWeight(height, gender)
 
 
 // New Workout Button and Form
+const newWorkoutFormHandler = async (event) => {
+    event.preventDefault();
+
+    const name = document.querySelector('#workout-name').value.trim();
+    const reps = document.querySelector('#workout-reps').value.trim();
+    const sets = document.querySelector('#workout-sets').value.trim();
+    const muscleGroup = document.querySelector('#workout-muscle-group').value.trim();
+    const equipment = document.querySelector('#workout-equipment').value.trim();
+    const difficulty = document.querySelector('#workout-difficulty').value.trim();
+    const instructions = document.querySelector('#workout-instructions').value.trim();
+
+    if (name && reps && sets && muscleGroup && equipment && difficulty && instructions) {
+        const response = await fetch('/api/workout', {
+            method: 'POST',
+            body: JSON.stringify({ name, reps, sets, muscleGroup, equipment, difficulty, instructions }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            alert("Form submitted!");
+        } else {
+            alert("Please fill out all spaces!");
+        }
+    }
+};
 
 
 // Past-Workouts Section
+
+
+
+
+// Call Functions
+document
+    .querySelector('.new-workout-form')
+    .addEventListener('submit', newWorkoutFormHandler);
