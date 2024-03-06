@@ -59,6 +59,7 @@ const newWorkoutFormHandler = async (event) => {
 
 
 
+
 // Call Functions
 document
     .querySelector('.new-workout-form')
