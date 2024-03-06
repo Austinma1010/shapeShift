@@ -7,11 +7,12 @@
   <title>Shape Shift</title>
   {{!-- Links to the css below --}}
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="content">
       <h1>
         <span role="img" aria-label="workout">🏋️‍♂️</span>
         <a href="/">ShapeShift</a>
@@ -20,9 +21,7 @@
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/">My Profile</a> |
-        <button class="no-button" id="logout">Logout</button>
-        {{else}}
-        <a href="/js/login.js">Login</a>
+        <button class="button is-danger" id="logout">Logout</button>
         {{/if}}
       </nav>
     </header>
