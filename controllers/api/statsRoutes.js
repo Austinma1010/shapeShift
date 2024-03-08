@@ -1,28 +1,88 @@
-const router = require('express').Router();
-const calculate = require('fitness-health-calculations');
+const router = require("express").Router();
+const calculate = require("fitness-health-calculations");
+const { User } = require("../../models");
 
-// const gender = document.querySelector('#gender-signup');
-// const weight = document.querySelector('#weight-signup');
-// const height = document.querySelector('#height-signup');
-// const age = document.querySelector('#age-signup');
-// const activity_level = document.querySelector('#activity-level');
-// const weightGoal = document.querySelector('#user-goal');
+// Get my BMR code
+router.get("/bmr/:id", async (req, res) => {
+  try {
+    const newBmr = await User.findByPk(req.params.id, {
+      attributes: ["gender", "age", "height", "weight"],
+    });
+    const { gender, age, height, weight } = newBmr;
 
-router.get('/', (req, res) => {
-   try {
-    const myBmr = calculate.bmr(gender, age, height, weight);
+    let newGender;
+    if (gender) {
+      newGender = "male";
+    } else {
+      newGender = "female";
+    }
+    // const stats = newStats.get({plain: true});
+
+    const myBmr = calculate.bmr(newGender, age, height, weight);
+    console.log(myBmr);
     res.status(200).json(myBmr);
-
-} catch (err) {
+  } catch (err) {
     res.status(400).json(err);
-}
-})
-// bmr
-// let myBmr = calculate.bmr(gender, age, height, weight);
-// console.log(myBmr);
+  }
+});
 
 // total caloric needs
-// let totalCaloricNeeds = calculate.caloricNeeds(gender, age, height, weight, activity_level, weightGoal, approach)
+// let totalCaloricNeeds = calculate.caloricNeeds(gender, age, height, weight, activity_level, weightGoal)
+router.get("/caloricneeds/:id", async (req, res) => {
+  try {
+    const newStats = await User.findByPk(req.params.id, {
+      attributes: [
+        "gender",
+        "age",
+        "height",
+        "weight",
+        "activity_level",
+        "goal",
+      ],
+    });
+    const { gender, age, height, weight, activity_level, goal } =
+      newStats;
+
+    let newGender;
+    if (gender) {
+      newGender = "male";
+    } else {
+      newGender = "female";
+    }
+    // const stats = newStats.get({plain: true});
+
+    let actLevel;
+    switch (activity_level) {
+      case 1:
+        actLevel = "sedentary";
+        break;
+      case 2:
+        actLevel = "light";
+        break;
+      case 3:
+        actLevel = "moderate";
+        break;
+      case 4:
+        actLevel = "high";
+        break;
+      case 5:
+        actLevel = "extreme";
+    }
+
+    const totalCaloricNeeds = calculate.caloricNeeds(
+      newGender,
+      age,
+      height,
+      weight,
+      actLevel,
+      goal
+    );
+    console.log(totalCaloricNeeds);
+    res.status(200).json(totalCaloricNeeds);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 // total daily energy expenditure
 // let dailyEnergyExp = calculate.tdee(gender, age, height, weight, activity_level)
