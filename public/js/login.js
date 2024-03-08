@@ -35,9 +35,9 @@ const loginFormHandler = async (event) => {
     const activity = document.querySelector('#activity-level').value.trim();
     const goal = document.querySelector('#user-goal').value.trim();
     // Set up true or false values in the gender section of the form
-    const genderValues = {
-      selectedOption: true // Set the boolean value here
-    };
+    // const genderValues = {
+    //   selectedOption: true // Set the boolean value here
+    // };
 
     const source = document.getElementById('gender-signup').innerHTML;
     const template = Handlebars.compile(source);
