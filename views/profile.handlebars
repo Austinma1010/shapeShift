@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{full_name}}!</h2>
+    <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
@@ -11,11 +11,9 @@
     <button class="ideal-weight" id="ideal-weight">Ideal Body Weight</button>
 </div>
 
-<div class="new-workout-btn">
-    <button id="new-workout-btn">Add New Workout</button>
-</div>
-
-<form class="form new-workout-form">
+<button id="newWorkoutBtn">Add a New Workout</button>
+<form id="newWorkoutForm" class="form new-workout-form box">
+  <button id="hideWorkoutForm" class="delete"></button>
   <div class="workout-group">
     <label for="workout-name">Workout Name</label>
     <input class="form-input" type="text" id="workout-name" />
@@ -44,6 +42,9 @@
     <label for="workout-instructions">Instructions</label>
     <input class="form-input" type="text" id="workout-instructions" />
   </div>
+  <div class="new-workout-btn">
+    <button id="new-workout-btn">Create workout!</button>
+  </div>
 </form>
     
 <div class="past-workouts" style="height:1000px;width:500px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
@@ -51,3 +52,4 @@
 </div>
 
 <script src="/js/profile.js"></script>
+
