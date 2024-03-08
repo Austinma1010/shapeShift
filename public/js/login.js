@@ -22,33 +22,49 @@ const loginFormHandler = async (event) => {
     }
   };
   
+  const getActivitylevel = (activity_level) => {
+    if (activity_level == 'sedentary') {
+      return 1;
+    } else if (activity_level == 'light') {
+      return 2;
+    } else if (activity_level == 'moderate') {
+      return 3;
+    } else if (activity_level == 'high') {
+      return 4;
+    } else if (activity_level == 'extreme') {
+      return 5;
+    }
+
+  }
+  
+
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-    const gender = document.querySelector('#gender-signup').value
-    const weight = document.querySelector('#weight-signup').value.trim();
-    const height = document.querySelector('#height-signup').value.trim();
-    const age = document.querySelector('#age-signup').value.trim();
-    const activity = document.querySelector('#activity-level').value.trim();
-    const goal = document.querySelector('#user-goal').value.trim();
-    // Set up true or false values in the gender section of the form
-    // const genderValues = {
-    //   selectedOption: true // Set the boolean value here
-    // };
+    const full_name = document.getElementById('name-signup').value.trim();
+    const email = document.getElementById('email-signup').value.trim();
+    const password = document.getElementById('password-signup').value.trim();
+    let male = document.getElementById('male').value;
+    let female = document.getElementById('female').value;
+    const weight = document.getElementById('weight-signup').value.trim();
+    const height = document.getElementById('height-signup').value.trim();
+    const age = document.getElementById('age-signup').value.trim();
+    const activity = document.getElementById('activity-level').value.trim();
+    const goal = document.getElementById('user-goal').value.trim();
 
-    const source = document.getElementById('gender-signup').innerHTML;
-    const template = Handlebars.compile(source);
-    const html = template(genderValues);
+    let gender;
 
-    document.getElementById('gender-signup').innerHTML = html;
+
+    if (male = 'true') {
+      gender = male;
+    } else {
+      gender = female;
+    }
+    const activity_level = getActivitylevel(activity);
   
-    if (name && email && password && gender && weight && height && age && activity && goal) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ name, email, password, gender, weight, height, age, activity, goal }),
+        body: JSON.stringify({ full_name, email, password, gender, weight, height, age, activity_level, goal }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -57,7 +73,7 @@ const loginFormHandler = async (event) => {
       } else {
         alert(response.statusText);
       }
-    }
+    
   };
 
   document
@@ -65,5 +81,5 @@ const loginFormHandler = async (event) => {
     .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    .getElementById('sign-up')
+    .addEventListener('click', signupFormHandler);
