@@ -31,18 +31,18 @@ const idealWeightBtn = document.querySelector("#ideal-weight");
 const newWorkoutFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#workout-name').value.trim();
+    const name_of_workout = document.querySelector('#workout-name').value.trim();
     const reps = document.querySelector('#workout-reps').value.trim();
     const sets = document.querySelector('#workout-sets').value.trim();
-    const muscleGroup = document.querySelector('#workout-muscle-group').value.trim();
+    const muscle_group = document.querySelector('#workout-muscle-group').value.trim();
     const equipment = document.querySelector('#workout-equipment').value.trim();
     const difficulty = document.querySelector('#workout-difficulty').value.trim();
     const instructions = document.querySelector('#workout-instructions').value.trim();
 
-    if (name && reps && sets && muscleGroup && equipment && difficulty && instructions) {
+    if (name_of_workout && reps && sets && muscle_group && equipment && difficulty && instructions) {
         const response = await fetch('/api/workout', {
             method: 'POST',
-            body: JSON.stringify({ name, reps, sets, muscleGroup, equipment, difficulty, instructions }),
+            body: JSON.stringify({ name_of_workout, reps, sets, muscle_group, equipment, difficulty, instructions }),
             headers: { 'Content-Type': 'application/json' }
         });
 
@@ -53,6 +53,7 @@ const newWorkoutFormHandler = async (event) => {
         }
     }
 };
+
 
 // Past-Workouts Section
 
@@ -86,6 +87,4 @@ document.getElementById('newWorkoutBtn').addEventListener('click', showNewWorkou
 
 
 // Call Functions
-document
-    .querySelector('.new-workout-form')
-    .addEventListener('submit', newWorkoutFormHandler);
+document.querySelector('#newWorkoutForm').addEventListener('submit', newWorkoutFormHandler);
