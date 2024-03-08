@@ -51,8 +51,9 @@ const loginFormHandler = async (event) => {
     const age = document.getElementById('age-signup').value.trim();
     const activity = document.getElementById('activity-level').value.trim();
     const goal = document.getElementById('user-goal').value.trim();
-    // Set up true or false values in the gender section of the form
+
     let gender;
+
 
     if (male = 'true') {
       gender = male;
