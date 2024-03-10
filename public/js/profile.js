@@ -1,3 +1,5 @@
+
+
 // User Dashboard Section
 
 // Personal stats section
@@ -82,6 +84,9 @@ const hideNewWorkoutForm = (event) => {
 
 document.getElementById('hideWorkoutForm').addEventListener('click', hideNewWorkoutForm);
 document.getElementById('newWorkoutBtn').addEventListener('click', showNewWorkoutForm);
+
+
+
 
 
 

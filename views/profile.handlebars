@@ -49,6 +49,33 @@
     
 <div class="past-workouts" style="height:1000px;width:500px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
   <div class="previous-workouts"></div>
+    {{#each workouts as |workout|}}
+      <div class="workout-card">
+        <div class="workout-card-header">
+          {{workout.name}}
+        </div>
+        <div class="card-body">
+          <p>
+            {{workout.instructions}}
+          </p>
+          <p>
+            {{workout.reps}}
+          </p>
+          <p>
+            {{workout.sets}}
+          </p>
+          <p>
+            {{workout.equipment}}
+          </p>
+          <p>
+            {{workout.muscle_group}}
+          </p>
+          <p>
+            {{workout.difficulty}}
+          </p>
+        </div>
+      </div>
+    {{/each}}
 </div>
 
 <script src="/js/profile.js"></script>
