@@ -6,7 +6,7 @@
 
 const getBmr = (e) => {
   e.preventDefault();
-  fetch("/bmr", {
+  fetch("./bmr", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -24,7 +24,7 @@ const getBmr = (e) => {
 
 const getTdee = (e) => {
   e.preventDefault();
-  fetch("/tdee", {
+  fetch("./tdee", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -43,7 +43,7 @@ const getTdee = (e) => {
 
 const getCn = (e) => {
   e.preventDefault();
-  fetch("/caloricNeeds", {
+  fetch("./caloricNeeds", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -62,7 +62,7 @@ const getCn = (e) => {
 
 const getIdealWeight = (e) => {
   e.preventDefault();
-  fetch("/idealWeight", {
+  fetch("./idealWeight", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
