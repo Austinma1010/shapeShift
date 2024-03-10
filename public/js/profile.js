@@ -4,7 +4,7 @@
 
 const getBmr = (e) => {
   e.preventDefault();
-  fetch("/api/stats/bmr/:id", {
+  fetch("/bmr", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -13,17 +13,74 @@ const getBmr = (e) => {
         return response.json();
       }
     }).then((data) => {
-      console.log(data)
+      alert('Your BMR is: ' + data);
     })
     .catch((error) => {
       console.error("Error:", error);
     });
 };
 
+const getTdee = (e) => {
+  e.preventDefault();
+  fetch("/tdee", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    }).then((data) => {
+      alert('Your Total daily energy expenditure is approximately: ' + data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+}
+
+const getCn = (e) => {
+  e.preventDefault();
+  fetch("/caloricNeeds", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    }).then((data) => {
+      alert('Your Total daily Caloric Need is approximately: ' + data + ' calories');
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+}
+
+const getIdealWeight = (e) => {
+  e.preventDefault();
+  fetch("/idealWeight", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    }).then((data) => {
+      alert('Your Ideal Weight is: ' + data + ' Pounds');
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+}
+
 document.querySelector("#bmr").addEventListener("click", getBmr);
-const tdeeBtn = document.querySelector("#tdee");
-const caloricNeedsBtn = document.querySelector("#caloric-needs");
-const idealWeightBtn = document.querySelector("#ideal-weight");
+document.querySelector("#tdee").addEventListener("click", getTdee);
+document.querySelector("#caloric-needs").addEventListener("click", getCn);
+document.querySelector("#ideal-weight").addEventListener("click", getIdealWeight);
 
 
 
