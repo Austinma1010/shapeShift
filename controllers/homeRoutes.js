@@ -32,24 +32,18 @@ router.get('/', withAuth, async (req, res) => {
 })
 
 router.get("/bmr", withAuth, async (req, res) => {
-    const url = 'https://fitness-calculator.p.rapidapi.com/bmi?age=25&weight=65&height=180';
-    fetch(url, {
-        method: "GET",
-        headers: { 
-            "Content-Type": "application/json",
-            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
-		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-     },
-      }).then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-        }).then((data) => {
-            res.status(200).json(data);
-        }).catch((error) => {
-          console.error("Error:", error);
+    try {
+        const bmr = await User.findByPk(req.session.user_id, {
+          attributes: [ "age", "height", "weight"],
         });
-  });
+        
+        const newBmr = bmr.get({plain: true});
+        res.status(200).json(bmr);
+
+    } catch (err) {
+        res.status(400).json(err);
+    }
+    });
 
 router.get("/tdee", async (req, res) => {
     try {

@@ -3,7 +3,27 @@
 // User Dashboard Section
 
 // Personal stats section
-
+const bmiFetch = (a, w, h) => {
+  const url = `https://fitness-calculator.p.rapidapi.com/bmi?age=${a}&weight=${w}&height=${h}`;
+  console.log(url);
+    fetch(url, {
+        method: "GET",
+        headers: { 
+            "Content-Type": "application/json",
+            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
+		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
+     },
+      }).then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        }).then((data) => {
+            console.log(data.data.bmi);
+            alert('Your BMI is: ' + data.data.bmi);
+        }).catch((error) => {
+          console.error("Error:", error);
+        });
+}
 const getBmr = (e) => {
   e.preventDefault();
   fetch("./bmr", {
@@ -16,9 +36,13 @@ const getBmr = (e) => {
         return response.json();
       }
     }).then((data) => {
-      console.log(' is ok')
-      
-      alert('Your BMR is: ' + data.data.bmi);
+      const age = data.age.toString();
+      const height = data.height.toString();
+      const weight = data.weight.toString();
+      console.log(age);
+      console.log(height);
+      console.log(weight);
+      bmiFetch(age, height, weight);
     })
     .catch((error) => {
       console.log('catch is running')
