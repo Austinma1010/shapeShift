@@ -5,7 +5,7 @@ const calculate = require("fitness-health-calculations");
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/');
         return;
     }
 
@@ -30,8 +30,8 @@ router.get('/', withAuth, async (req, res) => {
     }
 })
 
-router.get("/bmr", async (req, res) => {
-    console.log('hello');
+router.get("/bmr", withAuth, async (req, res) => {
+    console.log(req.session.user_id);
     try {
       const newBmr = await User.findByPk(req.session.user_id, {
         attributes: ["gender", "age", "height", "weight"],
