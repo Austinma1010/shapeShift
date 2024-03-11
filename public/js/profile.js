@@ -24,6 +24,30 @@ const bmiFetch = (a, w, h) => {
           console.error("Error:", error);
         });
 }
+
+const caloricFetch = (a, h, w, g, al) => {
+  const url = `https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${a}&gender=${g}&height=${h}&weight=${w}&activitylevel=${al}`;
+  console.log(url);
+    fetch(url, {
+        method: "GET",
+        headers: { 
+            "Content-Type": "application/json",
+            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
+		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
+     },
+      }).then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        }).then((data) => {
+            
+            alert('Your daily calorie expenditure is: ' + data.data.BMR + 'calories');
+            
+        }).catch((error) => {
+          console.error("Error:", error);
+        });
+}
+
 const getBmr = (e) => {
   e.preventDefault();
   fetch("./bmr", {
@@ -61,7 +85,42 @@ const getTdee = (e) => {
         return response.json();
       }
     }).then((data) => {
-      alert('Your Total daily energy expenditure is approximately: ' + data);
+      let { gender, age, height, weight, activity_level } = data;
+
+          if (gender) {
+            gender = "male";
+          } else {
+            gender = "female";
+          }
+
+          if (activity_level == 1) {
+            activity_level = 'level_1';
+          } else if (activity_level == 2) {
+            activity_level = 'level_2';
+          } else if (activity_level == 3) {
+            activity_level = 'level_3';
+          } else if (activity_level == 4) {
+            activity_level = 'level_4';
+          } else if (activity_level == 5) {
+            activity_level = 'level_5';
+          }
+          if (weight > 160) {
+            alert('Sorry, youre too heavy for our calculations to work');
+            return;
+          } else if (weight < 40) {
+            alert('Sorry, Youre too light for our calculations to work');
+            return;
+          }
+
+          if (height > 230) {
+            alert('Sorry, youre too tall for our calculations to work');
+            return;
+          } else if (height < 130) {
+            alert('Sorry, Youre too short for our calculations to work');
+            return;
+          }
+
+          caloricFetch(age, height, weight, gender, activity_level);
     })
     .catch((error) => {
       console.error("Error:", error);
