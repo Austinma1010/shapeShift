@@ -12,12 +12,15 @@ const getBmr = (e) => {
   })
     .then((response) => {
       if (response.ok) {
+        console.log('res is ok')
         return response.json();
       }
     }).then((data) => {
+      console.log(' is ok')
       alert('Your BMR is: ' + data);
     })
     .catch((error) => {
+      console.log('catch is running')
       console.error("Error:", error);
     });
 };
