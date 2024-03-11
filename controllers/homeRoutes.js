@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Workout, User } = require('../models');
 const withAuth = require('../utils/auth');
-const calculate = require("fitness-health-calculations");
+const calculate = require("fitness-calculator");
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
@@ -31,11 +31,13 @@ router.get('/', withAuth, async (req, res) => {
 })
 
 router.get("/bmr", async (req, res) => {
+    console.log('hello');
     try {
       const newBmr = await User.findByPk(req.session.user_id, {
         attributes: ["gender", "age", "height", "weight"],
       });
       let { gender, age, height, weight } = newBmr;
+      console.log(gender);
   
       
       if (gender) {
@@ -46,7 +48,7 @@ router.get("/bmr", async (req, res) => {
   
   
       const myBmr = calculate.bmr(gender, age, height, weight);
-      
+      console.log(myBmr)
       res.status(200).json(myBmr);
     } catch (err) {
       res.status(400).json(err);
