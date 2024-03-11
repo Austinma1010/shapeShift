@@ -50,7 +50,7 @@ router.get("/tdee", async (req, res) => {
         const tdee = await User.findByPk(req.session.user_id, {
             attributes: ["gender", "age", "height", "weight", "activity_level"],
           });
-          
+
           const newTdee = tdee.get({plain: true});
       
       res.status(200).json(newTdee);
@@ -99,15 +99,11 @@ router.get("/idealWeight", async (req, res) => {
         const newWeight = await User.findByPk(req.session.user_id, {
             attributes: ["gender", "height"],
           });
-          let { gender, height } = newWeight;
+          
 
-          if (gender) {
-            gender = "male";
-          } else {
-            gender = "female";
-          }
+          const myWeight = newWeight.get({plain: true});
 
-          const myWeight = calculate.idealBodyWeight(height, gender, units = 'imperial');
+          
       
       res.status(200).json(myWeight);
 
