@@ -37,7 +37,7 @@ router.get("/bmr", withAuth, async (req, res) => {
         attributes: ["gender", "age", "height", "weight"],
       });
       let { gender, age, height, weight } = newBmr;
-      console.log(gender);
+      console.log(height);
   
       
       if (gender) {
@@ -46,7 +46,7 @@ router.get("/bmr", withAuth, async (req, res) => {
         gender = "female";
       }
   
-  
+  console.log(gender);
       const myBmr = calculate.bmr(gender, age, height, weight);
       console.log(myBmr)
       res.status(200).json(myBmr);
