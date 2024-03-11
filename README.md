@@ -1,6 +1,6 @@
 # shapeShift
 ## Description
-An app to keep track of your wellness routines and connect to a fitness community
+An app to keep track of your wellness routines.
 
 ## Installation
 No installation needed, just login to the website and start your fitness journey.
