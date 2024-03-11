@@ -17,7 +17,8 @@ const getBmr = (e) => {
       }
     }).then((data) => {
       console.log(' is ok')
-      alert('Your BMR is: ' + data);
+      
+      alert('Your BMR is: ' + data.data.bmi);
     })
     .catch((error) => {
       console.log('catch is running')
