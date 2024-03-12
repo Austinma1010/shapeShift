@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 // User Dashboard Section
 
@@ -10,7 +9,7 @@ const bmiFetch = (a, w, h) => {
         method: "GET",
         headers: { 
             "Content-Type": "application/json",
-            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
 		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
      },
       }).then((response) => {
@@ -32,7 +31,7 @@ const idealWeightFetch = (g, h) => {
         method: "GET",
         headers: { 
             "Content-Type": "application/json",
-            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
 		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
      },
       }).then((response) => {
@@ -55,7 +54,7 @@ const caloricFetch = (a, h, w, g, al) => {
         method: "GET",
         headers: { 
             "Content-Type": "application/json",
-            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
 		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
      },
       }).then((response) => {
@@ -79,7 +78,7 @@ const cnFetch = (a, h, w, g, al) => {
         method: "GET",
         headers: { 
             "Content-Type": "application/json",
-            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Key': '3d9b02f0b8msh672db476a5b07ffp14675ajsna77c170ea78c',
 		    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
      },
       }).then((response) => {
