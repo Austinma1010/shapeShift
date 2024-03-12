@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Workout, User } = require('../models');
 const withAuth = require('../utils/auth');
 const calculate = require("fitness-health-calculations");
-
+const fetch = require('node-fetch');
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
